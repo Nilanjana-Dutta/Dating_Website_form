@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<style>
+			fieldset {background:#FFF9C8;border:10px solid yellow;margin-bottom:10px;width:720px}
+			label {width:180px;display:inline-block;text-align:right;vertical-align:top}
+					  .textrange1
+			          {
+			              text-align: center;
+			              vertical-align:top;
+			              background:brown;
+			              color:white;
+			          }
+			          .textrange2
+			          {
+			              text-align: center;
+			              vertical-align:top;
+			              background:blueviolet;
+			              color:white;
+			          }
+			label:hover { font-size:40px }
+			.abc:hover {height:150px;width:300px;font-size:40px }
+			textarea {width:360px;height:50px}
+			input[type=radio] + label {width:auto}
+			input[type=checkbox] + label {width:auto}
+		</style>
+		
+		<script>
+				window.onload = function() {
+				    var files = document.querySelectorAll("input[type=file]");
+				    files[0].addEventListener("change", function(e) {
+				        if(this.files && this.files[0]) {
+				            var reader = new FileReader();
+				            reader.onload = function(e) { document.getElementById("preview").setAttribute("src", e.target.result); }
+				            reader.readAsDataURL(this.files[0]);
+				        }
+				    });
+				}
+		</script>
+</head>
+<body>
+		<h1><b>Please Enter Your Details For Our Dating Website!</b></h1><br>
+		<form method="post" enctype="multipart/form-data" action="https://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php">
+				<fieldset>
+							<legend>Your Face</legend>
+							<label for="photo">Your Image:</label>
+							<input type="file" id="photo" name="photo" value="No file chosen" required><br><br>
+							<label>Image Preview</label>
+							<img id="preview" src="https://www.cse.ust.hk/~rossiter/dating_web_site.js" alt="preview">
+							
+				</fieldset><br/>
+				<fieldset>
+						<legend>Your General Details</legend>
+						<label for="namee">Name:</label>
+						<input type="text" id="namee" name="namee" class="abc" placeholder="Your full name" required><br><br>
+						<label for="gender">Gender</label>
+						<input type="radio" name="gender" value="Male" required><span class="abc">Male</span> 
+						<input type="radio" name="gender" value="Female" required><span class="abc">Female</span>
+						<br><br>
+						<label for="age">Age:</label>
+						<input type="number" min="1" max="99" step="1" value="18" name="age" class="abc" required><br><br>
+						<label for="dob">Date of Birth:</label>
+						<input type="date" id="dob" name="dob" class="abc"><br><br>
+						<label for="favclr">Favourite colour:</label>
+						<input type="color" id="favclr" name="favclr" class="abc"><br><br>
+						<label for="country">Country:</label>
+						<select id="country" name="country" class="abc">
+								<option value="IN">India</option>
+								<option value="US">USA</option>
+								<option value="UK">United Kingdom</option>
+								<option value="SP">Singapore</option>
+								<option value="SK">South Korea</option>
+								<option value="AS">Australia</option>
+						</select>
+				</fieldset><br/>
+				<fieldset>
+							<legend>Your Indicators</legend>
+							<label for="height">Height: </label>
+							<span class="textrange1">Short</span><input type="range" min="145" max="200" step="1" value="175" id="height" name="height" required><span class="textrange2">Tall</span><br>
+							<label for="salary">Salary: </label>
+							<span class="textrange1">Poor</span><input type="range" min="20000" max="100000" step="1000" value="75000" id="salary" name="salary" required><span class="textrange2">Rich</span><br>
+				</fieldset><br/>
+				<fieldset>
+							<legend>Your Contact Information</legend>
+							<label for="email">Email</label>
+							<input type="email" id="email" name="email" class="abc" required><br><br>
+							<label for="mobile">Mobile</label>
+							<input type="tel" id="mobile" name="mobile" class="abc"><br><br>
+							<label for="address">Address</label>
+							<textarea rows="5" cols="60" name="address" class="abc" placeholder="enter your address here"></textarea><br><br>
+							<label for="contact">Method to contact you</label>
+							<input type="checkbox" id="Email" name="contact" value="Email"><span class="abc">Email</span>
+							<input type="checkbox" id="WhatsApp" name="contact" value="WhatsApp"><span class="abc">WhatsApp</span>
+							<input type="checkbox" id="Twitter" name="contact" value="Twitter"><span class="abc">Twitter</span>
+				</fieldset><br/>
+				<input type="submit" value="Submit!">
+		</form>
+</body>
+</html>
